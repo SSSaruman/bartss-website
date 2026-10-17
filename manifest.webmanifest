@@ -1,0 +1,16 @@
+{
+ "name": "BARTSS",
+ "short_name": "BARTSS",
+ "lang": "tr",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#eaf3fe",
+ "theme_color": "#0c2243",
+ "icons": [
+  {
+   "src": "favicon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml"
+  }
+ ]
+}

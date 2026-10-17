@@ -1,0 +1,28 @@
+# BARTSS
+
+> BARTSS, fikri tasarıma, tasarımı çalışan bir deneyime dönüştüren yaratıcı tasarım ve dijital üretim stüdyosudur. Türkçe hizmet verir.
+
+## Hizmetler
+- [Marka & Görsel Kimlik](https://www.bartss.com/hizmetler/marka-kimligi.html): logo, marka kimliği, kurumsal materyaller, ürün ve ambalaj tasarımı
+- [Web & UI/UX](https://www.bartss.com/hizmetler/web-ui-ux.html): web sitesi, arayüz ve mobil uygulama tasarımı
+- [3D & Motion](https://www.bartss.com/hizmetler/3d-motion.html): 3D karakter, sahne ve hareket tasarımı
+- [AI & Otomasyon](https://www.bartss.com/hizmetler/ai-otomasyon.html): yapay zeka destekli reklam filmi ve üretim sistemleri
+- [Sosyal Medya](https://www.bartss.com/hizmetler/sosyal-medya.html): yayın dili, şablon ve içerik sistemi
+
+## Çalışmalar
+- [Hedef](https://www.bartss.com/projeler/hedef.html): kombi ve petek servisi için randevu odaklı web sitesi
+- [Lanista](https://www.bartss.com/projeler/lanista.html)
+- [Cosmic](https://www.bartss.com/projeler/cosmic.html)
+- [Thronex](https://www.bartss.com/projeler/thronex.html)
+- [Word Okey](https://www.bartss.com/projeler/word-okey.html)
+- [Brover Studio](https://www.bartss.com/projeler/brover-studio.html)
+
+## Notlar
+- [Logo tasarımı nasıl ilerler?](https://www.bartss.com/blog/logo-tasarimi-nasil-ilerler.html)
+- [AI ile reklam filmi nasıl yapılır?](https://www.bartss.com/blog/ai-ile-reklam-filmi.html)
+- [Katalog hazırlarken dikkat edilecekler](https://www.bartss.com/blog/katalog-hazirlarken.html)
+
+## Optional
+- [Sitemap](https://www.bartss.com/sitemap.xml)
+- [Gizlilik ve KVKK](https://www.bartss.com/gizlilik-kvkk.html)
+- Konsept çalışmalar (MORROW, ORBIT, NEXA FLOW, SOLI) gerçek müşteri işi değildir, stüdyonun bağımsız örnekleridir.

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#211d2f">
+<meta name="description" content="Brover by Ufuk Karahan. An original modular 3D character collection with 40 video exports, 86 FBX accessory assets, and real motion previews.">
+<title>Brover — Character System / Ufuk Karahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#241f34;--cream:#f5f1e9;--lav:#c6c4f1;--yellow:#e4fb6a;--line:#c6c0b5;--secondary:#6d6b70;--gut:clamp(20px,4vw,72px);--display:'Space Grotesk',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:clip;max-width:100%}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip;max-width:100%}
+button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img,video{display:block;max-width:100%}h1,h2,h3,h4,p{margin:0}h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.07em}::selection{background:var(--yellow);color:var(--ink)}:focus-visible{outline:3px solid #9675ea;outline-offset:4px}
+.wrap{max-width:1800px;padding-inline:var(--gut);margin-inline:auto}
+.tag{font-size:11px;font-weight:800;letter-spacing:.13em;line-height:1.45;text-transform:uppercase}
+.top{position:sticky;z-index:100;top:0;background:rgba(245,241,233,.94);backdrop-filter:blur(18px);border-bottom:1px solid #beb8ae}
+.top .inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{font:700 28px/1 var(--display);letter-spacing:-.1em;flex:none}.brand span{color:#8f70e5}
+.top .right{display:flex;align-items:center;gap:clamp(15px,4vw,60px);font-size:11px;font-weight:800;letter-spacing:.13em}
+.top .right>a:hover{text-decoration:underline;text-underline-offset:6px}
+.menu-btn{background:none;border:1px solid var(--ink);border-radius:24px;padding:11px 16px;color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.13em;white-space:nowrap}
+.menu-overlay{display:none;position:fixed;z-index:99;inset:74px 0 0;background:var(--yellow);padding:60px var(--gut) 30px;overflow:auto}
+.menu-overlay.open{display:block}
+.menu-overlay nav{max-width:1500px;margin:auto;display:grid;gap:0}
+.menu-overlay nav>a{font:600 clamp(44px,8vw,114px)/1 var(--display);letter-spacing:-.09em;border-bottom:1px solid #5c6833;padding:17px 0;display:flex;justify-content:space-between}
+.menu-overlay small{font:800 11px 'DM Sans',sans-serif;letter-spacing:.12em;padding-top:12px}
+.intro{padding:38px 0 0}
+.intro-header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.intro-header .crumb{color:var(--secondary)}
+.intro h1{font-size:clamp(98px,20vw,350px);line-height:.81;font-weight:700;letter-spacing:-.125em;margin:clamp(60px,6vw,105px) 0 42px;padding-right:.06em}
+.intro h1 .dot{color:#997fe0}
+.headline-footer{display:grid;grid-template-columns:1fr .58fr;gap:50px;align-items:end;margin-bottom:60px;padding-top:22px;border-top:1px solid var(--ink)}
+.headline-footer h2{font-size:clamp(26px,3.3vw,52px);line-height:1.17;max-width:760px;letter-spacing:-.052em}
+.headline-footer p{font-size:clamp(14px,1.25vw,18px);line-height:1.8;color:#55505c;max-width:470px}
+.cover{background:var(--lav)}
+.runway{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;background:#9d99c7;padding:3px}
+.runway figure{min-width:0;margin:0;position:relative;overflow:hidden;background:#cbc6ef}
+.runway figure img{width:100%;aspect-ratio:1;object-fit:contain;transition:transform .45s ease}
+.runway figure:hover img{transform:scale(1.035)}
+.runway figure figcaption{position:absolute;top:15px;left:16px;background:var(--ink);color:white;padding:8px 12px;font-size:10px;font-weight:800;letter-spacing:.11em}
+.cover-note{background:#e6fa75;display:flex;justify-content:space-between;gap:20px;padding:20px var(--gut);align-items:center}
+.cover-note strong{font:700 clamp(16px,2vw,27px) var(--display);letter-spacing:-.05em}
+.cover-note span{font-size:11px;letter-spacing:.1em;font-weight:800}
+.section{padding:clamp(85px,11vw,160px) 0}
+.section-head{display:grid;grid-template-columns:.42fr 1fr;gap:40px;align-items:start;margin-bottom:60px;border-top:1px solid currentColor;padding-top:21px}
+.section-head .count{font-size:11px;letter-spacing:.14em;font-weight:800}
+.section-head h2{font-size:clamp(46px,6.8vw,108px);line-height:.97;letter-spacing:-.089em;max-width:1100px}
+.section-head h2 em{font-style:normal;color:#8a7caa}
+.section-head p{font-size:clamp(16px,1.4vw,20px);line-height:1.7;max-width:640px;margin-top:25px;color:var(--secondary)}
+.numbers{border-block:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px}
+.numbers>div{padding:28px 18px;border-right:1px solid var(--line)}
+.numbers>div:first-child{padding-left:0}.numbers>div:last-child{border:0}
+.numbers strong{display:block;font:600 clamp(60px,8vw,140px)/.95 var(--display);letter-spacing:-.085em}
+.numbers small{font-size:11px;font-weight:800;letter-spacing:.12em;line-height:1.8;display:block;text-transform:uppercase;margin-top:15px}
+.film-section{background:var(--ink);color:var(--cream)}
+.film-section .section-head{border-color:#877c96}
+.film-section .section-head h2 em{color:#c6b6f4}
+.film-section .section-head p{color:#beb6c9}
+.film{background:#9d9be6;border:1px solid #756a91;position:relative}
+.film video{width:100%;max-height:900px;object-fit:contain}
+.film-subtitle{display:flex;justify-content:space-between;gap:18px;align-items:center;border-top:1px solid #877c96;padding:20px 0;margin-top:25px;color:#beb6c9;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.film-subtitle b{color:var(--cream)}
+.explorer{background:#e6e4dc}
+.explore-unit{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);min-height:620px}
+.explore-movie{background:#c3c1f2;min-height:620px;position:relative}
+.explore-movie video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.explore-movie .variant-badge{position:absolute;bottom:22px;left:24px;padding:13px 17px;background:#1d1c2c;color:white;font-size:12px;font-weight:800;letter-spacing:.1em}
+.explore-tools{background:var(--ink);color:white;padding:clamp(25px,4vw,60px);display:flex;flex-direction:column;gap:20px;justify-content:space-between}
+.explore-tools h3{font-size:clamp(45px,5vw,76px);line-height:1.01}
+.explore-tools h3 em{font-style:normal;color:#c8c3ec}
+.explore-tools p{color:#cec8db;line-height:1.75;font-size:15px;max-width:430px}
+.thumbnails{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:15px}
+.thumbnails button{padding:0;border:2px solid transparent;background:#c3c1f2;position:relative}
+.thumbnails button[aria-pressed=true]{border-color:var(--yellow);outline:2px solid var(--yellow);outline-offset:2px}
+.thumbnails img{width:100%;aspect-ratio:1;object-fit:cover}
+.thumbnails .num{position:absolute;top:6px;left:7px;background:#262030d9;color:white;padding:3px 5px;font-size:9px}
+.caption-small{color:#bbb2cc;font-size:10px;letter-spacing:.13em;font-weight:800}
+.construction{background:#faf7f0}
+.build-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.build-card{border-top:1px solid var(--ink);padding-top:13px}
+.build-card img{width:100%;aspect-ratio:1;object-fit:cover;margin:20px 0}
+.build-card .marker{color:#8b70de}
+.build-card h3{font-size:clamp(27px,3vw,47px);letter-spacing:-.06em}
+.build-card p{line-height:1.75;font-size:14px;color:#655d66;max-width:370px;margin-top:14px}
+.tools-section{background:#d6f39c}
+.tools-section .section-head h2 em{color:#7c9964}
+.tool-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.tool-item{border:1px solid #668061;padding:20px 14px 22px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
+.tool-item img{width:44px;height:44px;object-fit:contain;display:block;filter:brightness(.16)}
+.tool-item strong{font:700 19px var(--display);letter-spacing:-.06em}
+.tool-item small{display:block;font-size:11px;font-weight:700;color:#506948;margin-top:8px;line-height:1.5}
+.tool-disclosure{margin-top:35px;max-width:960px;color:#4a5b41;line-height:1.75;font-size:14px}
+.end{background:var(--ink);color:var(--cream);padding:100px 0}
+.end h2{font-size:clamp(62px,10vw,170px);line-height:.93;letter-spacing:-.09em;margin:50px 0}
+.end h2 em{font-style:normal;color:#d9fa75}
+.endlinks{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-top:1px solid #7d7888;font-size:12px;font-weight:800;letter-spacing:.1em}
+.endlinks a:hover{text-decoration:underline;text-underline-offset:6px}
+@media(max-width:900px){
+ .headline-footer{grid-template-columns:1fr;gap:18px}
+ .section-head{grid-template-columns:1fr;gap:24px}
+ .explore-unit{grid-template-columns:1fr}
+ .explore-movie{min-height:560px}
+ .tool-list{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+ .top .inner{height:66px}.top .right>a{display:none}.menu-overlay{top:66px}
+ .intro{padding-top:23px}
+ .intro h1{font-size:clamp(77px,19.8vw,116px);margin:73px 0 35px}
+ .intro-header span:last-child{max-width:45%;text-align:right}
+ .headline-footer{margin-bottom:40px}
+ .headline-footer h2{font-size:32px}
+ .runway{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .runway figure:nth-child(n+3){display:none}
+ .cover-note{padding-block:16px}
+ .cover-note span{max-width:36%;text-align:right}
+ .section{padding:78px 0}
+ .section-head{margin-bottom:40px}
+ .section-head h2{font-size:clamp(47px,11vw,66px)}
+ .numbers strong{font-size:48px}.numbers>div{padding:18px 9px}
+ .numbers small{font-size:9px}
+ .film-subtitle{flex-wrap:wrap;line-height:1.9}
+ .explore-movie{min-height:410px}
+ .explore-tools{padding:28px 22px}
+ .explore-tools h3{font-size:48px}
+ .build-grid{grid-template-columns:1fr;gap:40px}
+ .build-card img{max-width:600px}
+ .tool-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tool-item{min-height:158px}
+ .end{padding:80px 0}
+ .end h2{font-size:clamp(65px,12vw,100px)}
+ .endlinks{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.runway figure img{transition:none}}
+
+/* ===============================================================
+   BROVER — BEVEL / CUT-CORNER DESIGN SYSTEM
+   Real character assets. Shapes are the UI language, not decoration.
+   =============================================================== */
+:root{--bev-dark:#171823;--bev-ink:#232337;--bev-lav:#cac9ed;--bev-lime:#dbfc78;--bev-line:#78798d;--cut:26px}
+body{background:#13141e;color:#eeede8}
+.top{background:rgba(18,19,29,.95);border-bottom:1px solid #424254;color:#eeede8}
+.top .right>a{color:#dad9e1}.top .right .tag{color:#a9a8b8}
+.brand span{color:var(--bev-lime)}
+.menu-btn{
+ border:0;border-radius:0;color:#1d1d2d;background:#e0ff88;
+ padding:15px 28px;min-width:122px;
+ clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.65);
+ transition:background .2s ease,color .2s ease;
+}
+.menu-btn:hover{background:#bdc1f9}
+.menu-overlay{background:#d9fb7c}
+.menu-overlay nav>a{padding:22px 18px;margin:4px 0;background:rgba(18,24,15,.065);
+ clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
+ border-bottom:1px solid #879d50;transition:background .2s}
+.menu-overlay nav>a:hover{background:#b6e66a}
+.intro{padding-top:49px}.intro-header{color:#e2e0dd}
+.intro-header .crumb{color:#aaa8b9}
+.hero-title-frame{
+ position:relative;margin:clamp(34px,5vw,80px) 0 44px;padding:22px clamp(22px,3.2vw,54px) 25px;
+ min-width:0;overflow:hidden;
+ background:linear-gradient(137deg,#41425c 0,#25253b 16%,#202032 69%,#35354e 100%);
+ clip-path:polygon(34px 0,calc(100% - 34px) 0,100% 34px,100% calc(100% - 34px),calc(100% - 34px) 100%,34px 100%,0 calc(100% - 34px),0 34px);
+ border:1px solid rgba(220,223,247,.28);
+}
+.hero-title-frame:before{content:"";position:absolute;inset:7px;pointer-events:none;opacity:.62;
+ background:linear-gradient(105deg,#c9c9f0,#e0ff8d) left top/125px 2px no-repeat,
+ linear-gradient(105deg,#c9c9f0,#e0ff8d) right bottom/132px 2px no-repeat,
+ linear-gradient(180deg,#a5a8c8,transparent) left top/2px 80px no-repeat,
+ linear-gradient(0deg,#a5a8c8,transparent) right bottom/2px 90px no-repeat;
+ clip-path:polygon(30px 0,calc(100% - 30px) 0,100% 30px,100% calc(100% - 30px),calc(100% - 30px) 100%,30px 100%,0 calc(100% - 30px),0 30px);
+}
+.hero-frame-top,.hero-frame-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#bcbddb;font-size:10px;letter-spacing:.16em;font-weight:800;text-transform:uppercase}
+.hero-frame-footer{color:#dcdfa5;margin-top:10px}
+.intro h1{color:#f6f6ed;font-size:clamp(94px,18vw,325px);margin:45px 0 36px;line-height:.78;letter-spacing:-.128em;text-transform:uppercase}
+.intro h1 .dot{color:#dfff86}
+.headline-footer{border-top:1px solid #56566a}
+.headline-footer h2{color:#f0efe8}.headline-footer p{color:#acaabd}
+.cover{padding:35px var(--gut) 0;background:#191925}
+.cover-surround{max-width:1750px;margin:auto;background:linear-gradient(135deg,#9597aa,#525367 31%,#b5b2dc 69%,#777993);
+ padding:3px;clip-path:polygon(32px 0,calc(100% - 32px) 0,100% 32px,100% calc(100% - 32px),calc(100% - 32px) 100%,32px 100%,0 calc(100% - 32px),0 32px)}
+.cover-frame-label{padding:23px 34px 16px;background:#292b40;color:#e7e6f0;font-size:10px;font-weight:800;letter-spacing:.14em;display:flex;justify-content:space-between;gap:15px}
+.runway{background:#24253a;padding:6px;gap:6px;clip-path:none}
+.runway figure{background:#c9c6ed;clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);outline-offset:2px}
+.runway figure:after{content:"";position:absolute;right:0;bottom:0;width:52px;height:2px;background:#e0ff84;transform:rotate(-45deg);transform-origin:right bottom;pointer-events:none}
+.runway figure figcaption{top:auto;bottom:12px;left:12px;color:#e5e6d7;background:#22233bbf;padding:10px 12px;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)}
+.cover-note{padding:20px 34px 24px;background:#ddfa83;color:#212637;border-top:3px solid #2d3240}
+.section{background:#f1f0e7;color:#202333}
+.section-head{border-color:#7d8090}
+.section-head .count{color:#5f627a}
+.section-head h2 em{color:#8e7fb6}
+.section-head p{color:#606473}
+.numbers{border-color:#8b8f9c}
+.numbers>div{border-color:#8b8f9c;padding:29px 25px;position:relative}
+.numbers strong{font-variant-numeric:tabular-nums;color:#2a2b3d}
+.numbers>div:before{content:"";position:absolute;top:0;right:0;width:30px;height:30px;background:#d4f379;clip-path:polygon(100% 0,100% 100%,0 0)}
+.film-section{background:#171825;color:#f3f2ec}
+.film-section .section-head{border-color:#68677a}
+.film-section .section-head h2 em{color:#c3b9ee}
+.film-section .section-head p{color:#b9b5ce}
+.film{
+ background:linear-gradient(135deg,#bfc2e0,#656783 25%,#c7c4f0 75%,#9395ac);
+ padding:6px;border:0;position:relative;overflow:hidden;
+ clip-path:polygon(30px 0,calc(100% - 30px) 0,100% 30px,100% calc(100% - 30px),calc(100% - 30px) 100%,30px 100%,0 calc(100% - 30px),0 30px);
+}
+.film video{width:100%;background:#c8c4ec;max-height:740px;clip-path:polygon(26px 0,calc(100% - 26px) 0,100% 26px,100% calc(100% - 26px),calc(100% - 26px) 100%,26px 100%,0 calc(100% - 26px),0 26px)}
+.film-plate-mark{
+ position:absolute;z-index:3;top:32px;left:42px;right:42px;
+ display:flex;justify-content:space-between;gap:10px;font-size:10px;letter-spacing:.11em;font-weight:800;color:#211c31;
+ pointer-events:none
+}
+.film-subtitle{border-color:#67697d}
+.explorer{background:#d6d6d7;color:#242338}
+.explorer .section-head h2 em{color:#74718d}
+.explore-unit{
+ gap:5px;overflow:hidden;background:linear-gradient(127deg,#797a95,#b6b6d5);
+ padding:5px;min-height:620px;
+ clip-path:polygon(32px 0,calc(100% - 32px) 0,100% 32px,100% calc(100% - 32px),calc(100% - 32px) 100%,32px 100%,0 calc(100% - 32px),0 32px)
+}
+.explore-movie{background:#c7c6ed;min-width:0;position:relative}
+.explore-movie video{object-fit:contain}
+.explore-tools{background:linear-gradient(155deg,#282940,#191b29);padding:clamp(25px,4vw,56px)}
+.explore-tools h3{font-size:clamp(47px,5vw,79px);color:#f5f4e9}
+.explore-tools h3 em{color:#d7fb8e}
+.explore-tools p{color:#bcbbcf}
+.explore-tools .control-caption{display:inline-block;padding:11px 17px;background:#d8f58b;color:#222435;font-size:10px;
+ clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.media-corner{position:absolute;z-index:3;top:18px;left:20px;right:20px;display:flex;justify-content:space-between;gap:13px;font-size:10px;font-weight:800;letter-spacing:.14em;color:#37324e;pointer-events:none}
+.explore-movie .variant-badge{left:20px;bottom:20px;border-radius:0;padding:15px 23px;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);background:#26263acb}
+.thumbnails{gap:8px}
+.thumbnails button{background:#77758e;border:0;padding:3px;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);transition:background .18s ease}
+.thumbnails button[aria-pressed=true]{background:#d9ff82;outline:none;border:0}
+.thumbnails button:hover{background:#c8bee5}
+.thumbnails button img{clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)}
+.thumbnails .num{background:#27243ac9;clip-path:polygon(4px 0,100% 0,100% 100%,0 100%,0 4px)}
+.caption-small{color:#b6b6cd}
+.construction{background:#ece9e4;color:#242335}
+.build-card{border:0;background:linear-gradient(140deg,#9494a4,#d2d1e0 55%,#878ba3);
+ padding:2px;min-width:0;
+ clip-path:polygon(23px 0,calc(100% - 23px) 0,100% 23px,100% calc(100% - 23px),calc(100% - 23px) 100%,23px 100%,0 calc(100% - 23px),0 23px)}
+.build-card .tag,.build-card h3,.build-card p{position:relative;margin-left:23px;margin-right:23px}
+.build-card .tag{display:block;margin-top:25px;color:#574985}
+.build-card img{margin:18px 0;width:100%;aspect-ratio:1;object-fit:contain;background:#c8c5f0}
+.build-card h3{font-size:clamp(29px,3vw,47px)}
+.build-card p{color:#595664;padding-bottom:24px}
+.build-grid{gap:16px}
+.tools-section{background:#d6ecb5;color:#1d2a22}
+.tools-section .section-head h2 em{color:#708d69}
+.tool-list{gap:9px}
+.tool-item{background:linear-gradient(135deg,#f3f9dc,#bed3a2);border:0;padding:24px 20px;min-height:180px;
+ clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 16px,100% calc(100% - 16px),calc(100% - 16px) 100%,16px 100%,0 calc(100% - 16px),0 16px);position:relative}
+.tool-item:before{content:"";position:absolute;inset:5px;border-top:1px solid #93a989;border-left:1px solid #93a989;pointer-events:none;clip-path:polygon(13px 0,100% 0,100% 100%,0 100%,0 13px)}
+.tool-item img{filter:brightness(.18)}
+.tool-item strong{color:#202f25}.tool-item small{color:#52644e}
+.end{background:#171825}
+.end h2 em{color:#daff82}
+.endlinks{border-color:#5f6173}
+.endlinks a{background:#26283b;padding:14px 18px;
+ clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
+@media(max-width:900px){
+ .intro h1{font-size:clamp(85px,19vw,170px)}
+ .runway{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .runway figure{aspect-ratio:1}.runway figure img{height:100%}
+ .explore-unit{grid-template-columns:1fr}
+ .explore-movie{min-height:520px}
+ .explore-tools{min-height:410px}
+}
+@media(max-width:600px){
+ :root{--cut:16px}
+ .hero-title-frame{margin-top:35px;padding:20px 18px;
+ clip-path:polygon(17px 0,calc(100% - 17px) 0,100% 17px,100% calc(100% - 17px),calc(100% - 17px) 100%,17px 100%,0 calc(100% - 17px),0 17px)}
+ .intro h1{font-size:clamp(69px,19vw,116px);margin:44px 0 37px}
+ .hero-frame-top,.hero-frame-footer{font-size:8px;line-height:1.5}
+ .cover{padding:16px 12px 0}
+ .cover-surround{clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px)}
+ .cover-frame-label{padding:17px 14px 13px;font-size:9px}
+ .cover-frame-label span:last-child{display:none}
+ .runway{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;padding:3px}
+ .runway figure:nth-child(n+3){display:block}
+ .runway figure{clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)}
+ .runway figure figcaption{font-size:8px;padding:7px 7px;bottom:8px;left:8px}
+ .cover-note{padding:16px;flex-direction:column;align-items:flex-start;gap:7px}
+ .cover-note span{max-width:none;text-align:left}
+ .numbers>div{padding:18px 10px}
+ .film{padding:3px;clip-path:polygon(17px 0,calc(100% - 17px) 0,100% 17px,100% calc(100% - 17px),calc(100% - 17px) 100%,17px 100%,0 calc(100% - 17px),0 17px)}
+ .film video{clip-path:none}
+ .film-plate-mark{top:20px;left:22px;right:22px;font-size:8px}
+ .explore-unit{padding:3px;clip-path:polygon(17px 0,calc(100% - 17px) 0,100% 17px,100% calc(100% - 17px),calc(100% - 17px) 100%,17px 100%,0 calc(100% - 17px),0 17px)}
+ .explore-movie{min-height:410px}
+ .explore-tools{min-height:unset;padding:25px 20px}
+ .media-corner{font-size:8px;top:15px;left:15px;right:15px}
+ .build-card{clip-path:polygon(20px 0,calc(100% - 20px) 0,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0 calc(100% - 20px),0 20px)}
+ .tool-list{gap:7px}.tool-item{min-height:155px;padding:19px 14px}
+}
+
+
+/* Form and visibility QA refinements */
+.hero-title-frame{clip-path:polygon(52px 0,calc(100% - 52px) 0,100% 52px,100% calc(100% - 52px),calc(100% - 52px) 100%,52px 100%,0 calc(100% - 52px),0 52px)}
+.hero-title-frame::before{opacity:.95}
+.hero-title-frame::after{content:"";position:absolute;z-index:3;right:0;top:0;width:80px;height:80px;background:linear-gradient(135deg,transparent 47%,#d6fc83 48%,#d6fc83 51%,transparent 52%);pointer-events:none;opacity:.9}
+.explore-tools{justify-content:flex-start;gap:18px}
+.explore-tools>div:nth-child(2){margin-top:auto}
+.thumbnails{width:100%;max-width:600px}
+.thumbnails button{min-width:0}
+.thumbnails button img{display:block}
+.tool-item img{opacity:1}
+@media(max-width:600px){
+ .hero-title-frame{clip-path:polygon(24px 0,calc(100% - 24px) 0,100% 24px,100% calc(100% - 24px),calc(100% - 24px) 100%,24px 100%,0 calc(100% - 24px),0 24px)}
+ .hero-title-frame::after{width:39px;height:39px}
+ .explore-tools{min-height:unset}
+ .thumbnails{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+</style></head>
+<body>
+<header class="top"><div class="inner wrap"><a href="index.html#work" class="brand" aria-label="Portfolio homepage">uk<span>·</span></a><div class="right"><a href="index.html#work">← ALL WORK</a><span class="tag">01 / CHARACTER STUDY</span><button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu">MENU ↗</button></div></div></header>
+<div class="menu-overlay" id="menu"><nav aria-label="Portfolio navigation"><a href="index.html#work"><small>01 /</small>WORK <span>↗</span></a><a href="index.html#systems"><small>02 /</small>AI SYSTEMS <span>↗</span></a><a href="index.html#about"><small>03 /</small>ABOUT <span>↗</span></a><a href="index.html#contact"><small>04 /</small>CONTACT <span>↗</span></a></nav></div>
+<main>
+<section class="intro wrap"><div class="intro-header"><span class="tag crumb">SELECTED WORK / CASE 001</span><span class="tag">3D / CHARACTER IDENTITY / MOTION</span></div><div class="hero-title-frame"><div class="hero-frame-top"><span>VISUAL CASE STUDY / 001</span><span>MODE: ORIGINAL SOURCES</span></div><h1>BROVER<span class="dot">.</span></h1><div class="hero-frame-footer"><span>MODULAR IDENTITY / NOT A TEMPLATE</span><span>DESIGNED, BUILT & ANIMATED ↘</span></div></div><div class="headline-footer"><h2>A modular character identity that stays recognizable while everything around it changes.</h2><p>The silhouette stays the same. Clothes, eyewear, props, personality and movement tell a different story in every variation.</p></div></section>
+<section class="cover" aria-label="Original Brover character variants"><div class="cover-surround"><div class="cover-frame-label"><span>BR—01 // ORIGINAL CHARACTER SYSTEM</span><span>FOUR FROM FORTY / REAL EXPORTS</span></div><div class="runway">
+<figure><img src="assets/brover/variant-04.webp" alt="Original Brover variation with horns, yellow outfit and dripping paint" fetchpriority="high"><figcaption>01 / THE MISCHIEF</figcaption></figure>
+<figure><img src="assets/brover/variant-10.webp" alt="Original Brover variation with blue jacket and staff"><figcaption>02 / THE MAGE</figcaption></figure>
+<figure><img src="assets/brover/variant-18.webp" alt="Original Brover variation holding a pizza and shovel"><figcaption>03 / THE MAKER</figcaption></figure>
+<figure><img src="assets/brover/variant-40.webp" alt="Original Brover variation in a purple shirt"><figcaption>04 / THE CLASSIC</figcaption></figure>
+</div><div class="cover-note"><strong>ONE FORM. MANY PERSONALITIES.</strong><span>REAL SOURCE IMAGES / NO REGENERATED CHARACTERS</span></div></div></section>
+<section class="section wrap"><div class="section-head"><span class="count">01 / IDEA</span><div><h2>A cast, not just a <em>single character.</em></h2><p>The design challenge: how can one recognizable visual identity carry many distinct roles without losing its proportions or basic personality? Brover explores repeated identity through accessory choices and character animation.</p></div></div>
+<div class="numbers"><div><strong>40</strong><small>Original animation exports</small></div><div><strong>86</strong><small>Modular FBX items<br>(source archive)</small></div><div><strong>01</strong><small>Core recognizable<br>character silhouette</small></div></div></section>
+<section class="section film-section"><div class="wrap"><div class="section-head"><span class="count">02 / MOTION</span><div><h2>Personality is also <em>movement.</em></h2><p>A character collection makes sense when its members move. This sequence uses the original Brover animation exports, not a newly generated imitation.</p></div></div><div class="film"><div class="film-plate-mark"><span>01 / MOTION ARCHIVE</span><span>PLAY TO INSPECT ↗</span></div><video src="assets/brover/brover-showreel.mp4" poster="assets/brover/variant-07.webp" muted loop controls playsinline preload="metadata" aria-label="Original Brover animation export showreel"></video></div><div class="film-subtitle"><span>REAL MOTION OUTPUT / SOURCE ARCHIVE</span><span><b>SELECT PLAY</b> TO INSPECT THE REEL ↗</span></div></div></section>
+<section class="section explorer" id="explore"><div class="wrap"><div class="section-head"><span class="count">03 / INTERACTIVE STUDY</span><div><h2>Meet the <em>variants.</em></h2><p>Choose a character from the original exports. Each option loads a different actual animation, so the motion is part of the portfolio rather than merely described.</p></div></div>
+<div class="explore-unit"><div class="explore-movie"><div class="media-corner"><span>BR—VARIANT</span><span>LIVE PREVIEW ●</span></div><video id="character-video" src="assets/brover/variant-04.mp4" poster="assets/brover/variant-04.webp" autoplay muted loop playsinline controls></video><span class="variant-badge" id="variant-badge">VIEWING / ORIGINAL 04</span></div><div class="explore-tools"><div><span class="tag control-caption">ORIGINAL VARIATION SELECTOR</span><h3>Same DNA.<br><em>Different energy.</em></h3><p>Each variation retains the body structure and visual framing while props, styling and movement build a new identity.</p></div><div><div class="thumbnails" id="variant-list">
+<button aria-label="Select variant 04" data-id="04" aria-pressed="true"><img src="assets/brover/variant-04.webp" alt=""><span class="num">04</span></button>
+<button aria-label="Select variant 07" data-id="07" aria-pressed="false"><img src="assets/brover/variant-07.webp" alt=""><span class="num">07</span></button>
+<button aria-label="Select variant 10" data-id="10" aria-pressed="false"><img src="assets/brover/variant-10.webp" alt=""><span class="num">10</span></button>
+<button aria-label="Select variant 14" data-id="14" aria-pressed="false"><img src="assets/brover/variant-14.webp" alt=""><span class="num">14</span></button>
+<button aria-label="Select variant 18" data-id="18" aria-pressed="false"><img src="assets/brover/variant-18.webp" alt=""><span class="num">18</span></button>
+<button aria-label="Select variant 22" data-id="22" aria-pressed="false"><img src="assets/brover/variant-22.webp" alt=""><span class="num">22</span></button>
+<button aria-label="Select variant 32" data-id="32" aria-pressed="false"><img src="assets/brover/variant-32.webp" alt=""><span class="num">32</span></button>
+<button aria-label="Select variant 40" data-id="40" aria-pressed="false"><img src="assets/brover/variant-40.webp" alt=""><span class="num">40</span></button>
+</div><p class="caption-small">08 ANIMATION OPTIONS / CLICK A PORTRAIT</p></div></div></div></div></section>
+<section class="section construction"><div class="wrap"><div class="section-head"><span class="count">04 / DESIGN SYSTEM</span><div><h2>What stays. <em>What changes.</em></h2><p>The personality system is built around visual consistency—not an unrelated collection of 3D renders.</p></div></div><div class="build-grid">
+<article class="build-card"><span class="tag marker">01 / SHAPE</span><img src="assets/brover/variant-01.webp" alt="Original character with base body and face silhouette"><h3>Readable silhouette.</h3><p>A consistent body and face proportion provides the anchor for every variant.</p></article>
+<article class="build-card"><span class="tag marker">02 / COSTUME</span><img src="assets/brover/variant-32.webp" alt="Original character with pirate hat, vest and lifesaver"><h3>Modular wardrobe.</h3><p>Headwear, eyewear, outfits and handheld accessories create new roles without rebuilding the identity.</p></article>
+<article class="build-card"><span class="tag marker">03 / EXPRESSION</span><img src="assets/brover/variant-41.webp" alt="Original character variation holding food"><h3>Character behavior.</h3><p>Stance, gesture and selected animation exports help each variation feel distinct.</p></article>
+</div></div></section>
+<section class="section tools-section"><div class="wrap"><div class="section-head"><span class="count">05 / PRODUCTION</span><div><h2>A project with <em>real source files.</em></h2><p>Beyond the visual collection: a production archive containing the corresponding character assets, scenes and motion files.</p></div></div>
+<div class="tool-list">
+<div class="tool-item"><img src="assets/tools/blender.svg" alt="Blender icon"><div><strong>Blender</strong><small>3D project scenes</small></div></div>
+<div class="tool-item"><img src="assets/tools/unity.svg" alt="Unity icon"><div><strong>Unity</strong><small>Game project source</small></div></div>
+<div class="tool-item"><img src="assets/tools/adobeaftereffects.svg" alt="After Effects icon"><div><strong>After Effects</strong><small>Motion compositions</small></div></div>
+<div class="tool-item"><img src="assets/tools/adobephotoshop.svg" alt="Photoshop icon"><div><strong>Photoshop</strong><small>Layered image assets</small></div></div>
+<div class="tool-item"><img src="assets/tools/adobeillustrator.svg" alt="Illustrator icon"><div><strong>Illustrator</strong><small>Vector sources</small></div></div>
+</div><p class="tool-disclosure">Verified original archive formats include FBX, BLEND, Unity project data, MP4 animation exports and Adobe project files. Their presence is evidence of production assets, not a claim that every source file was used in a released product.</p></div></section>
+<footer class="end"><div class="wrap"><span class="tag">END OF CASE 001 / BROVER</span><h2>NEXT UP:<br><em>LANISTA ↗</em></h2><div class="endlinks"><a href="case.html?slug=lanista">VIEW LANISTA CHARACTER DEVELOPMENT ↗</a><a href="index.html#work">← ALL SELECTED WORK</a><span>UFUK KARAHAN / 2026</span></div></div></footer>
+</main><script>
+(function(){
+const button=document.getElementById('menu-btn'),menu=document.getElementById('menu');
+button.addEventListener('click',()=>{const open=menu.classList.toggle('open');button.setAttribute('aria-expanded',String(open));button.textContent=open?'CLOSE ×':'MENU ↗';document.body.style.overflow=open?'hidden':'';});
+const video=document.getElementById('character-video'),badge=document.getElementById('variant-badge');
+document.querySelectorAll('#variant-list button').forEach(b=>b.addEventListener('click',()=>{
+ const id=b.dataset.id;
+ if(!/^\d\d$/.test(id))return;
+ document.querySelectorAll('#variant-list button').forEach(x=>x.setAttribute('aria-pressed',String(b===x)));
+ video.poster='assets/brover/variant-'+id+'.webp';
+ video.src='assets/brover/variant-'+id+'.mp4';
+ badge.textContent='VIEWING / ORIGINAL '+id;
+ video.load();const p=video.play();if(p&&p.catch)p.catch(()=>{});
+}));
+})();
+</script></body></html>

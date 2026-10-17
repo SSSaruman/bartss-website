@@ -1,0 +1,210 @@
+/* MindMarket interpretation for the real Ufuk portfolio homepage.
+   Source artwork and case-study pages remain unchanged. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+body.home-v6.mindmarket{
+  --mm-paper:#f5f1e4;--mm-ink:#2c2e2a;--mm-white:#ffffff;
+  --mm-green:#8ed462;--mm-sand:#e0dbce;--mm-gray:#80827f;
+  --mm-blue:#2ba0ff;--mm-coral:#ff705d;--mm-yellow:#f5e211;
+  --acid:var(--mm-green);--cream:var(--mm-paper);
+  --gut:clamp(22px,5vw,70px);
+  background:var(--mm-paper);color:var(--mm-ink);
+  font-family:'Inter',Arial,sans-serif;font-weight:400;
+}
+body.home-v6.mindmarket h1,body.home-v6.mindmarket h2,body.home-v6.mindmarket h3,body.home-v6.mindmarket h4,
+body.home-v6.mindmarket .footer-heading{font-family:'Inter',Arial,sans-serif;font-weight:500;letter-spacing:-.06em}
+body.home-v6.mindmarket .wrap{max-width:1340px}
+body.home-v6.mindmarket .navbar{height:92px;min-height:92px;padding:13px 0;background:var(--mm-paper);border:0;backdrop-filter:none;position:sticky}
+body.home-v6.mindmarket .navrow{height:66px;min-height:66px;background:var(--mm-white);border-radius:50px;padding:8px 12px 8px 15px;gap:16px;max-width:1200px}
+body.home-v6.mindmarket .identity{min-width:0;gap:11px}
+body.home-v6.mindmarket .identity .symbol{width:43px;height:43px;border-radius:14px;background:var(--mm-green);display:grid;place-items:center;line-height:1;font-size:27px;color:var(--mm-ink);letter-spacing:-.14em;flex:none}
+body.home-v6.mindmarket .identity .symbol-stroke,body.home-v6.mindmarket .identity i{color:var(--mm-ink)}
+body.home-v6.mindmarket .identity .idmeta{color:var(--mm-gray);letter-spacing:0;font-size:9px;line-height:1.3}
+body.home-v6.mindmarket .identity .idmeta b{color:var(--mm-ink);font-size:15px;letter-spacing:-.025em;font-weight:500}
+body.home-v6.mindmarket .top-now{display:none}
+body.home-v6.mindmarket .nav-inline{display:flex;gap:clamp(15px,2.6vw,36px);align-items:center;margin-left:auto}
+body.home-v6.mindmarket .nav-inline a{font-size:14px;white-space:nowrap;letter-spacing:-.015em;font-weight:500}
+body.home-v6.mindmarket .nav-inline a:hover{border-bottom:1px solid var(--mm-gray)}
+body.home-v6.mindmarket .navtoggle{width:45px;min-width:45px;height:45px;padding:0;display:flex;align-items:center;justify-content:center;border:0;background:var(--mm-green);border-radius:50%;font-size:0;color:var(--mm-ink);letter-spacing:0;gap:0;flex:none;box-shadow:none}
+body.home-v6.mindmarket .navtoggle span{font-size:22px;line-height:1}
+body.home-v6.mindmarket .nav-quote{display:flex;align-items:center;gap:14px;border-radius:50px;background:#f5f1e4;font-size:14px;font-weight:500;padding:7px 8px 7px 19px;white-space:nowrap}
+body.home-v6.mindmarket .nav-quote i{font-style:normal;display:grid;place-items:center;width:31px;height:31px;border-radius:50%;background:var(--mm-blue);font-size:16px}
+body.home-v6.mindmarket .navlinks{inset:85px max(10px,calc((100vw - 1200px)/2)) auto;width:auto;min-height:calc(100dvh - 105px);height:calc(100dvh - 105px);background:var(--mm-paper);border:2px solid var(--mm-green);border-radius:48px;padding:clamp(24px,4vw,58px);color:var(--mm-ink);z-index:1001}
+body.home-v6.mindmarket .navlinks>a{font-family:'Inter',Arial,sans-serif;color:var(--mm-ink);font-weight:500;letter-spacing:-.065em;border-color:var(--mm-sand)}
+body.home-v6.mindmarket .navlinks>a:hover{color:var(--mm-coral)}
+body.home-v6.mindmarket .nav-index,body.home-v6.mindmarket .nav-bottom{font-weight:500;color:var(--mm-gray)}
+body.home-v6.mindmarket .v6-hero{background:var(--mm-paper);overflow:visible}
+body.home-v6.mindmarket .v6-hero-grid{display:flex;flex-direction:column;height:auto;max-height:none;min-height:0;gap:0;overflow:visible;padding:0;position:relative;clip-path:none}
+body.home-v6.mindmarket .v6-intro{min-height:0;max-width:1250px;margin:auto;width:100%;padding:40px var(--gut) 0;display:flex;flex-direction:column;gap:0;align-items:center;text-align:center;clip-path:none;background:transparent}
+body.home-v6.mindmarket .v6-topline{width:100%;max-width:1110px;justify-content:space-between;margin-bottom:32px}
+body.home-v6.mindmarket .tiny-label{font-size:11px;letter-spacing:.08em;font-weight:500;color:var(--mm-gray)}
+body.home-v6.mindmarket .v6-intro-center{padding-top:0;width:100%;display:flex;flex-direction:column;align-items:center}
+body.home-v6.mindmarket .hero-numeric{font-size:14px;letter-spacing:0;color:var(--mm-ink);font-weight:500;margin:0 0 26px}
+body.home-v6.mindmarket .v6-intro h1{font-size:clamp(75px,11vw,144px);line-height:.95;letter-spacing:-.065em;font-weight:500;margin:0;color:var(--mm-ink)}
+body.home-v6.mindmarket .v6-intro h1 em{font-style:normal;color:var(--mm-ink)}
+body.home-v6.mindmarket .green-dot{color:var(--mm-green)}
+body.home-v6.mindmarket .lead{max-width:620px;font-size:clamp(16px,1.5vw,20px);color:var(--mm-ink);line-height:1.55;margin:27px 0 0}
+body.home-v6.mindmarket .v6-intro-footer{width:100%;max-width:1110px;justify-content:space-between;align-items:center;margin:30px 0 0}
+body.home-v6.mindmarket .inline-cta{font-size:14px;font-weight:500;letter-spacing:-.01em;text-transform:none;color:var(--mm-ink);border:0;border-radius:50px;padding:10px 11px 10px 20px;background:var(--mm-white);gap:18px;display:flex}
+body.home-v6.mindmarket .inline-cta span{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:var(--mm-blue);font-size:19px;line-height:1}
+body.home-v6.mindmarket .v6-hero-art{width:min(1300px,100%);margin:-6px auto 0;height:clamp(315px,47vw,610px);min-height:0;background:none;overflow:visible;clip-path:none;isolation:auto;pointer-events:none}
+body.home-v6.mindmarket .v6-hero-art>img{width:100%;height:100%;object-fit:contain;object-position:center bottom;border:0}
+body.home-v6.mindmarket .v6-art-overline,body.home-v6.mindmarket .v6-art-mark{display:none}
+body.home-v6.mindmarket .ticker{background:var(--mm-paper);border-top:2px solid var(--mm-green);border-bottom:1px solid var(--mm-sand);color:var(--mm-ink);height:54px}
+body.home-v6.mindmarket .ticker-track{font-size:12px;font-weight:500;letter-spacing:.02em}
+body.home-v6.mindmarket .work-v6,body.home-v6.mindmarket .about-v6{background:var(--mm-paper);color:var(--mm-ink)}
+body.home-v6.mindmarket .work-v6{padding:105px 0 50px}
+body.home-v6.mindmarket .divider-head{font-size:11px;letter-spacing:.06em;font-weight:500;border-color:var(--mm-sand);color:var(--mm-ink)}
+body.home-v6.mindmarket .big-section-heading{margin:45px 0 100px;grid-template-columns:minmax(0,1.3fr) minmax(250px,.6fr)}
+body.home-v6.mindmarket .big-section-heading h2,body.home-v6.mindmarket .system-head h2{font-size:clamp(58px,7.7vw,105px);line-height:1.02;letter-spacing:-.06em}
+body.home-v6.mindmarket .big-section-heading em{color:var(--mm-gray)}
+body.home-v6.mindmarket .big-section-heading p,body.home-v6.mindmarket .feature-description p{color:#595d57;font-size:17px;line-height:1.65}
+body.home-v6.mindmarket .feature-v6{margin-bottom:105px}
+body.home-v6.mindmarket .feature-head{font-size:11px;letter-spacing:.04em;font-weight:500;color:var(--mm-gray)}
+body.home-v6.mindmarket .feature-banner{margin-inline:var(--gut);border-radius:50px;overflow:hidden;clip-path:none;background:var(--mm-white)}
+body.home-v6.mindmarket .feature-banner:before,body.home-v6.mindmarket .feature-banner:after{display:none}
+body.home-v6.mindmarket .feature-banner img{min-height:0;max-height:800px;aspect-ratio:1.72;object-fit:cover;clip-path:none;border-radius:0}
+body.home-v6.mindmarket .banner-corner{background:var(--mm-white);color:var(--mm-ink);border-radius:50px;font-size:12px;font-weight:500;letter-spacing:0;right:32px;top:30px;padding:11px 14px 11px 21px;clip-path:none}
+body.home-v6.mindmarket .banner-corner span{font-size:20px;color:var(--mm-blue)}
+body.home-v6.mindmarket .feature-foot{padding-top:30px;grid-template-columns:minmax(0,1fr) minmax(280px,.46fr)}
+body.home-v6.mindmarket .feature-foot h3{font-size:clamp(48px,6.9vw,92px);line-height:1;letter-spacing:-.06em}
+body.home-v6.mindmarket .feature-foot sup{font:500 13px 'Inter',sans-serif}
+body.home-v6.mindmarket .source-note{font-size:11px;color:var(--mm-gray);font-weight:400;letter-spacing:.025em}
+body.home-v6.mindmarket .case-text-link{font-size:13px;font-weight:500;letter-spacing:0}
+body.home-v6.mindmarket .v6-brover-strip{margin-inline:var(--gut);gap:4px;padding:8px;background:var(--mm-white);border-radius:50px;overflow:hidden;clip-path:none}
+body.home-v6.mindmarket .v6-brover-strip img{border-radius:25px;clip-path:none}
+body.home-v6.mindmarket .feature-brover .feature-foot{border-color:var(--mm-sand)}
+body.home-v6.mindmarket .archive-image{border-radius:44px;clip-path:none;background:var(--mm-white);padding:8px}
+body.home-v6.mindmarket .archive-image img{border-radius:38px;clip-path:none}
+body.home-v6.mindmarket .archive-image>span{background:var(--mm-blue);color:var(--mm-ink);border-radius:50%}
+body.home-v6.mindmarket .archive-label strong{font:500 clamp(18px,2.2vw,28px) 'Inter',sans-serif;letter-spacing:-.05em}
+body.home-v6.mindmarket .archive-label small{color:var(--mm-gray);font-weight:500}
+body.home-v6.mindmarket .more-work{border-color:var(--mm-sand)}
+body.home-v6.mindmarket .more-work a{font-size:13px;letter-spacing:0;font-weight:500}
+body.home-v6.mindmarket .more-work span{color:var(--mm-gray)}
+body.home-v6.mindmarket .systems-v6{background:var(--mm-paper);color:var(--mm-ink);padding:95px 0}
+body.home-v6.mindmarket .system-head{margin:50px 0 55px}
+body.home-v6.mindmarket .system-head h2 em{color:var(--mm-ink)}
+body.home-v6.mindmarket .system-head p{font-size:17px;color:#595d57;line-height:1.65}
+body.home-v6.mindmarket .system-grid{gap:22px}
+body.home-v6.mindmarket .system-grid>a{border:0;border-radius:50px;overflow:hidden;clip-path:none;background:var(--mm-white);display:block}
+body.home-v6.mindmarket .sys-headline{border-color:var(--mm-sand);font-weight:500;letter-spacing:0;font-size:11px;padding:22px 26px}
+body.home-v6.mindmarket .sys-stage{background:#dbeecf}
+body.home-v6.mindmarket .clip-stage{background:#e2eafa}
+body.home-v6.mindmarket .sys-stage,body.home-v6.mindmarket .clip-stage{margin:0;height:clamp(330px,34vw,460px)}
+body.home-v6.mindmarket .sys-layers span{border:2px solid var(--mm-ink);border-radius:18px;background:var(--mm-white);color:var(--mm-ink);font-size:11px;font-weight:500;min-height:130px;letter-spacing:0}
+body.home-v6.mindmarket .sys-layers span:nth-child(2),body.home-v6.mindmarket .sys-layers span:nth-child(5){background:var(--mm-green);color:var(--mm-ink)}
+body.home-v6.mindmarket .sys-layers span:nth-child(3){background:var(--mm-yellow)}
+body.home-v6.mindmarket .sys-arrow{color:var(--mm-ink)}
+body.home-v6.mindmarket .clip-screen,body.home-v6.mindmarket .clip-phone{box-shadow:none;border-color:var(--mm-ink);border-radius:18px;background:var(--mm-ink)}
+body.home-v6.mindmarket .clip-screen-in{background:#9ecffc}
+body.home-v6.mindmarket .clip-phone-in{background:#ffb3aa}
+body.home-v6.mindmarket .sys-detail{padding:26px}
+body.home-v6.mindmarket .sys-detail h3{font-size:clamp(35px,4vw,55px)}
+body.home-v6.mindmarket .sys-detail p{font-size:15px;color:#595d57;line-height:1.6}
+body.home-v6.mindmarket .system-index{border-color:var(--mm-sand);font-weight:500;letter-spacing:0;color:var(--mm-gray)}
+body.home-v6.mindmarket .system-index span:first-child{color:var(--mm-ink)}
+body.home-v6.mindmarket .practice-v6{background:var(--mm-paper);color:var(--mm-ink);padding:95px 0}
+body.home-v6.mindmarket .practice-heading{margin:50px 0 50px}
+body.home-v6.mindmarket .practice-heading h2{font-size:clamp(72px,10vw,130px);line-height:.95;letter-spacing:-.06em}
+body.home-v6.mindmarket .practice-heading h2 em{color:var(--mm-green)}
+body.home-v6.mindmarket .practice-heading p{font-size:17px;color:#595d57}
+body.home-v6.mindmarket .practice-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border:0}
+body.home-v6.mindmarket .practice-steps>div{background:var(--mm-white);border:0;border-radius:40px;min-height:265px;padding:26px}
+body.home-v6.mindmarket .practice-steps h3{font-size:clamp(26px,2.6vw,36px);margin:75px 0 11px}
+body.home-v6.mindmarket .practice-steps p{color:#595d57;font-size:14px}
+body.home-v6.mindmarket .about-v6{padding:90px 0 110px}
+body.home-v6.mindmarket .about-grid{margin-top:60px}
+body.home-v6.mindmarket .about-grid h2{font-size:clamp(60px,7vw,104px)}
+body.home-v6.mindmarket .about-grid h2 span{color:var(--mm-green)}
+body.home-v6.mindmarket .about-grid p{color:#595d57;line-height:1.6}
+body.home-v6.mindmarket .skills span{border:1px solid var(--mm-sand);border-radius:50px;padding:10px 15px;font-size:11px;font-weight:500;letter-spacing:0;background:var(--mm-white)}
+body.home-v6.mindmarket .experience>div,body.home-v6.mindmarket .experience>div:first-child{border-color:var(--mm-sand)}
+body.home-v6.mindmarket .experience b{font:500 clamp(17px,1.65vw,23px) 'Inter',sans-serif}
+body.home-v6.mindmarket .experience span,body.home-v6.mindmarket .experience em{font-weight:400;color:var(--mm-gray)}
+body.home-v6.mindmarket .contact-v6{background:var(--mm-yellow);color:var(--mm-ink);padding:80px 0 35px}
+body.home-v6.mindmarket .footer-heading{font-size:clamp(75px,11.6vw,157px);line-height:.98;letter-spacing:-.065em;margin:65px 0 40px}
+body.home-v6.mindmarket .footer-heading em{font-style:normal;color:var(--mm-ink)}
+body.home-v6.mindmarket .footer-mail{font:500 clamp(20px,3.2vw,45px) 'Inter',sans-serif;letter-spacing:-.05em;border-color:var(--mm-ink)}
+body.home-v6.mindmarket .footer-mail span{color:var(--mm-ink)}
+body.home-v6.mindmarket .bottom-foot{margin-top:100px;letter-spacing:0;font-weight:500}
+body.home-v6.mindmarket :is(a,button):focus-visible{outline:2px solid var(--mm-blue);outline-offset:4px}
+@media(max-width:1100px){
+body.home-v6.mindmarket .nav-inline{gap:12px}
+body.home-v6.mindmarket .v6-intro h1{font-size:clamp(75px,11vw,125px)}
+body.home-v6.mindmarket .big-section-heading{gap:25px}
+}
+@media(max-width:800px){
+body.home-v6.mindmarket .nav-inline{display:none}
+body.home-v6.mindmarket .navrow{padding:7px 9px 7px 13px}
+body.home-v6.mindmarket .v6-topline .tiny-label:nth-child(2){display:none}
+body.home-v6.mindmarket .big-section-heading,body.home-v6.mindmarket .system-head,body.home-v6.mindmarket .practice-heading{grid-template-columns:1fr;gap:22px}
+body.home-v6.mindmarket .feature-foot{grid-template-columns:1fr;gap:14px}
+body.home-v6.mindmarket .practice-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:740px){
+body.home-v6.mindmarket .navbar{height:83px;min-height:83px;padding:10px 0}
+body.home-v6.mindmarket .navrow{height:63px;min-height:63px}
+body.home-v6.mindmarket .nav-quote{display:none}
+body.home-v6.mindmarket .navtoggle{min-width:45px;height:45px;width:45px}
+body.home-v6.mindmarket .navlinks{top:77px;inset:77px 10px auto;height:calc(100dvh - 91px);min-height:calc(100dvh - 91px);padding:28px 25px;border-radius:32px}
+body.home-v6.mindmarket .v6-intro{padding:32px 22px 0;min-height:0;clip-path:none}
+body.home-v6.mindmarket .v6-topline{margin-bottom:40px;justify-content:center}
+body.home-v6.mindmarket .hero-numeric{font-size:12px;margin-bottom:22px}
+body.home-v6.mindmarket .v6-intro h1{font-size:clamp(62px,13vw,93px);line-height:.98}
+body.home-v6.mindmarket .lead{font-size:16px;line-height:1.5;margin:24px 0 0}
+body.home-v6.mindmarket .v6-intro-footer{margin:27px 0 0;justify-content:center}
+body.home-v6.mindmarket .v6-intro-footer .tiny-label{display:none}
+body.home-v6.mindmarket .v6-hero-art{margin:5px auto 0;width:110%;max-width:110%;transform:translateX(-4.5%);height:clamp(240px,54vw,410px);clip-path:none;overflow:visible;aspect-ratio:auto}
+body.home-v6.mindmarket .work-v6{padding-top:70px}
+body.home-v6.mindmarket .big-section-heading{margin:34px 0 70px}
+body.home-v6.mindmarket .big-section-heading h2,body.home-v6.mindmarket .system-head h2{font-size:clamp(52px,11vw,78px)}
+body.home-v6.mindmarket .feature-v6{margin-bottom:75px}
+body.home-v6.mindmarket .feature-head{align-items:center}
+body.home-v6.mindmarket .feature-banner{margin-inline:10px;border-radius:28px;clip-path:none}
+body.home-v6.mindmarket .feature-banner img{min-height:0;aspect-ratio:1.2}
+body.home-v6.mindmarket .banner-corner{top:13px;right:13px;border-radius:50px;font-size:10px;padding:10px 13px}
+body.home-v6.mindmarket .feature-foot h3{font-size:clamp(43px,11vw,73px)}
+body.home-v6.mindmarket .v6-brover-strip{margin:0 10px;padding:5px;gap:4px;border-radius:23px;clip-path:none}
+body.home-v6.mindmarket .v6-brover-strip img{border-radius:13px;clip-path:none}
+body.home-v6.mindmarket .archive-grid{grid-template-columns:1fr 1fr;gap:14px}
+body.home-v6.mindmarket .archive-image{border-radius:24px}
+body.home-v6.mindmarket .archive-image img{border-radius:20px}
+body.home-v6.mindmarket .systems-v6,body.home-v6.mindmarket .practice-v6{padding:75px 0}
+body.home-v6.mindmarket .system-grid{grid-template-columns:1fr}
+body.home-v6.mindmarket .system-grid>a{border-radius:35px;clip-path:none}
+body.home-v6.mindmarket .sys-stage,body.home-v6.mindmarket .clip-stage{min-height:290px;height:300px}
+body.home-v6.mindmarket .sys-layers span{min-height:100px}
+body.home-v6.mindmarket .practice-steps>div{min-height:205px;padding:20px;border-radius:26px}
+body.home-v6.mindmarket .practice-steps h3{margin:35px 0 10px}
+body.home-v6.mindmarket .about-v6{padding:65px 0}
+body.home-v6.mindmarket .about-grid{grid-template-columns:1fr;gap:45px}
+body.home-v6.mindmarket .footer-heading{font-size:clamp(65px,14vw,105px)}
+body.home-v6.mindmarket .bottom-foot{flex-wrap:wrap;gap:12px;margin-top:65px}
+}
+@media(max-width:440px){
+body.home-v6.mindmarket .identity .idmeta>span{display:none}
+body.home-v6.mindmarket .navrow{gap:8px}
+body.home-v6.mindmarket .v6-intro h1{font-size:clamp(57px,14vw,70px)}
+body.home-v6.mindmarket .archive-grid{grid-template-columns:1fr}
+body.home-v6.mindmarket .sys-layers{gap:4px}
+body.home-v6.mindmarket .sys-layers span{font-size:9px;padding:8px 3px;border-radius:12px}
+body.home-v6.mindmarket .experience>div{grid-template-columns:.8fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){body.home-v6.mindmarket .ticker-track{animation:none}}
+
+/* Targeted correction: remove the legacy dark bevel background behind the cream hero. */
+body.home-v6.mindmarket .v6-hero-grid{background:var(--mm-paper);max-width:none}
+body.home-v6.mindmarket .v6-intro:before{display:none}
+body.home-v6.mindmarket .v6-intro{position:relative;z-index:2}
+body.home-v6.mindmarket .inline-cta{clip-path:none}
+body.home-v6.mindmarket .navlinks>a{clip-path:none;background:transparent;border-bottom:1px solid var(--mm-sand);margin:0}
+body.home-v6.mindmarket .feature-head span:first-child{clip-path:none;background:transparent;color:var(--mm-gray);padding:0}
+body.home-v6.mindmarket .v6-hero-art{margin-top:-92px}
+@media(max-width:740px){body.home-v6.mindmarket .v6-hero-art{margin-top:0}}
+
+/* Keep the original 'uk·' mark on one line inside its rounded-square holder. */
+body.home-v6.mindmarket .identity .symbol{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;letter-spacing:-.16em;padding-right:4px}
+body.home-v6.mindmarket .identity .symbol i{font-size:18px;align-self:center;letter-spacing:0;margin:0 0 0 2px}
+
+/* Prevent the illustration bleed from expanding the 390px mobile document width. */
+@media(max-width:740px){body.home-v6.mindmarket .v6-hero-art{width:100%;max-width:100%;transform:none}}
