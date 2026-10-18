@@ -1,0 +1,94 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>BARTSS Yönetim</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{--ink:#0c2243;--mut:#58708d;--line:#d6e0ec;--bg:#f4f7fb;--coral:#ff6f61}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif}
+a{color:var(--ink)}a:hover{color:var(--coral)}
+button,input,select,textarea{font:inherit;color:inherit}
+.btn{height:40px;padding:0 18px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+.btn.o{background:#fff;color:var(--ink)}.btn.c{background:var(--coral);border-color:var(--coral);color:#0c2243}.btn.s{height:32px;padding:0 12px;font-size:13px}
+.btn:disabled{opacity:.45;cursor:default}
+input,select,textarea{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;width:100%}
+label{display:grid;gap:5px;font-weight:700;font-size:13px}
+.gate{min-height:100vh;display:grid;place-items:center;padding:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+.gate .card{width:min(380px,100%);display:grid;gap:14px}
+h1,h2,h3{margin:0;letter-spacing:-.02em}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:.07em}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button{height:36px;padding:0 14px;border-radius:99px;border:0;background:none;font-weight:700;cursor:pointer;color:var(--mut)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+main{max-width:1000px;margin:0 auto;padding:24px;display:grid;gap:18px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.list{display:grid;gap:10px}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
+.when{font-weight:800;min-width:110px}.when small{display:block;color:var(--mut);font-weight:600}
+.meta{min-width:0}.meta b{display:block}.meta span{color:var(--mut);font-size:13px;overflow-wrap:anywhere}
+.st{font-size:12px;font-weight:800;border-radius:99px;padding:3px 10px;background:#eef2f7}
+.st.pending{background:#fff0d6;color:#7a4b00}.st.confirmed{background:#d9f5e3;color:#0b5a2a}.st.cancelled{background:#fde1de;color:#8a1f15}.st.done{background:#e4ecf7}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .h{font-size:12px;font-weight:800;color:var(--mut);text-align:center}
+.cal .d{min-height:64px;border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff;font-size:13px;font-weight:700;text-align:left;cursor:pointer}
+.cal .d.off{background:#f0f3f7;color:#9aabc0;cursor:default}.cal .d.bl{background:#fde1de}
+.cal .d small{display:block;font-weight:600;color:var(--mut)}.cal .d.sel{outline:2px solid var(--ink)}
+.days{display:flex;gap:6px;flex-wrap:wrap}.days label{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font-weight:700}.days input{width:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{display:inline-flex;gap:6px;align-items:center;background:#fde1de;border-radius:99px;padding:4px 6px 4px 12px;font-weight:700;font-size:13px}.chip button{border:0;background:none;cursor:pointer;font-size:16px;line-height:1}
+.note{color:var(--mut);font-size:13px}.empty{padding:28px;text-align:center;color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:99px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s}.toast.on{opacity:1}
+.banner{background:#fff0d6;border:1px solid #f0d49a;border-radius:14px;padding:12px 16px;font-size:14px}
+@media(max-width:640px){.item{grid-template-columns:1fr}.acts{justify-content:flex-start}main{padding:16px}.top{padding:12px 16px}}
+</style></head><body>
+<div id="gate" class="gate"><form class="card" id="loginForm"><h1>BARTSS Yönetim</h1><p class="note" id="loginNote">Yönetici şifresini girin.</p><label id="emailRow" hidden>E-posta<input type="email" id="lEmail" autocomplete="username"></label><label>Şifre<input type="password" id="lPass" autocomplete="current-password" required></label><button class="btn" type="submit">Giriş yap</button><p class="note" id="lErr" role="alert" style="color:#8a1f15;margin:0"></p></form></div>
+<div id="app" hidden>
+<header class="top"><span class="brand">BARTSS ✳ <span style="font-weight:600;letter-spacing:0;color:var(--mut)">Yönetim</span></span>
+<nav class="tabs" role="tablist" id="tabs"><button role="tab" data-t="bookings" aria-selected="true">Randevular</button><button role="tab" data-t="calendar" aria-selected="false">Takvim</button><button role="tab" data-t="avail" aria-selected="false">Müsaitlik</button><button role="tab" data-t="leads" aria-selected="false">Talepler</button><button role="tab" data-t="settings" aria-selected="false">Site ayarları</button></nav>
+<div class="row"><a class="btn o s" href="index.html" style="display:inline-grid;place-items:center;text-decoration:none">Siteyi aç ↗</a><button class="btn o s" id="out">Çıkış</button></div></header>
+<main id="main"></main></div>
+<div class="toast" id="toast" role="status"></div>
+<script src="assets/booking-config.js"></script><script src="assets/booking.js"></script>
+<script>
+(()=>{const B=BARTSS_BOOKING,$=s=>document.querySelector(s),H=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const DN=['Paz','Pzt','Sal','Çar','Per','Cum','Cmt'],MN=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+const ST={pending:'Onay bekliyor',confirmed:'Onaylandı',cancelled:'İptal',done:'Tamamlandı'};
+let tab='bookings',S=null,cur=new Date(),selDay=null,filter='active';
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.x);toast.x=setTimeout(()=>t.classList.remove('on'),2200)};
+const fmt=(d)=>{const x=new Date(d+'T00:00:00');return x.getDate()+' '+MN[x.getMonth()]+' '+DN[x.getDay()]};
+function gate(){if(B.remote){$('#emailRow').hidden=false;$('#loginNote').textContent='Yönetici e-postası ve şifresi.'}
+ if(B.isAuthed()){$('#gate').hidden=true;$('#app').hidden=false;start()}}
+$('#loginForm').onsubmit=async e=>{e.preventDefault();$('#lErr').textContent='';const ok=await B.login($('#lEmail').value,$('#lPass').value);if(ok){gate()}else $('#lErr').textContent='Giriş başarısız.'};
+$('#out').onclick=()=>{B.logout();location.reload()};
+$('#tabs').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;tab=b.dataset.t;document.querySelectorAll('#tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));render()};
+async function start(){S=await B.settings();render()}
+async function render(){const m=$('#main');({bookings:vBook,calendar:vCal,avail:vAvail,leads:vLeads,settings:vSet})[tab](m)}
+const banner=()=>B.remote?'':'<div class="banner"><b>Demo modu.</b> Veriler yalnızca bu tarayıcıda saklanır. Tüm ziyaretçilerle ortak doluluk için <code>assets/booking-config.js</code> dosyasına Supabase bilgilerini girin (bkz. supabase-schema.sql).</div>';
+async function vBook(m){const all=await B.list(),today=B.iso(new Date());
+ const rows=all.filter(b=>filter==='all'||(filter==='active'?b.status!=='cancelled'&&b.date>=today:b.status===filter));
+ m.innerHTML=banner()+`<div class="row" style="justify-content:space-between"><h2>Randevular</h2><select id="flt" style="width:auto"><option value="active">Yaklaşan</option><option value="pending">Onay bekleyen</option><option value="confirmed">Onaylanan</option><option value="cancelled">İptal</option><option value="all">Tümü</option></select></div><div class="list">`+(rows.length?rows.map(b=>`<div class="item"><div class="when">${fmt(b.date)}<small>${H(b.time)}</small></div><div class="meta"><b>${H(b.name)}</b><span>${H(b.contact)}${b.note?' · '+H(b.note):''}</span></div><div class="acts"><span class="st ${b.status}">${ST[b.status]||b.status}</span>${b.status==='pending'?`<button class="btn s" data-a="confirmed" data-id="${b.id}">Onayla</button>`:''}${b.status!=='cancelled'?`<button class="btn o s" data-a="cancelled" data-id="${b.id}">İptal</button>`:`<button class="btn o s" data-a="del" data-id="${b.id}">Sil</button>`}${b.status==='confirmed'?`<button class="btn o s" data-a="done" data-id="${b.id}">Tamamlandı</button>`:''}<a class="btn o s" style="display:inline-grid;place-items:center;text-decoration:none" href="mailto:${H(/@/.test(b.contact)?b.contact:'')}?subject=${encodeURIComponent('BARTSS görüşmesi: '+fmt(b.date)+' '+b.time)}&body=${encodeURIComponent('Merhaba '+b.name+',\n\n'+fmt(b.date)+' saat '+b.time+' görüşmemiz için bağlantı:\n'+(S.meetUrl||'[Meet bağlantısı]')+'\n\nBARTSS')}">E-posta</a></div></div>`).join(''):'<div class="empty">Kayıt yok.</div>')+'</div>';
+ $('#flt').value=filter;$('#flt').onchange=e=>{filter=e.target.value;vBook(m)};
+ m.onclick=async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,id=b.dataset.id;if(a==='del'){if(!confirm('Kalıcı olarak silinsin mi?'))return;await B.remove(id)}else await B.update(id,{status:a});toast('Güncellendi');vBook(m)}}
+async function vCal(m){const all=(await B.list()).filter(b=>b.status!=='cancelled'),y=cur.getFullYear(),mo=cur.getMonth(),first=new Date(y,mo,1),lead=(first.getDay()+6)%7,n=new Date(y,mo+1,0).getDate();
+ let h=banner()+`<div class="row" style="justify-content:space-between"><h2>${MN[mo]} ${y}</h2><div class="row"><button class="btn o s" data-n="-1">‹</button><button class="btn o s" data-n="1">›</button></div></div><div class="cal">`+['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'].map(d=>`<div class="h">${d}</div>`).join('')+'<div></div>'.repeat(lead);
+ for(let i=1;i<=n;i++){const ds=B.iso(new Date(y,mo,i)),tot=B.slots(S,ds,[],new Date(0)).length,bk=all.filter(b=>b.date===ds).length,bl=S.blocked.includes(ds),off=!tot&&!bl;
+  h+=`<button class="d ${off?'off':''} ${bl?'bl':''} ${selDay===ds?'sel':''}" data-d="${ds}">${i}<small>${bl?'Kapalı':off?'':bk+' / '+tot}</small></button>`}
+ h+='</div>';
+ if(selDay){const day=all.filter(b=>b.date===selDay);h+=`<div class="card"><div class="row" style="justify-content:space-between"><h3>${fmt(selDay)}</h3><button class="btn o s" data-blk="${selDay}">${S.blocked.includes(selDay)?'Günü aç':'Günü kapat'}</button></div><div class="list" style="margin-top:12px">`+(day.length?day.map(b=>`<div class="item"><div class="when">${b.time}</div><div class="meta"><b>${H(b.name)}</b><span>${H(b.contact)}</span></div><span class="st ${b.status}">${ST[b.status]}</span></div>`).join(''):'<div class="empty">Randevu yok.</div>')+'</div></div>'}
+ m.innerHTML=h;
+ m.onclick=async e=>{const nb=e.target.closest('[data-n]');if(nb){cur=new Date(y,mo+ +nb.dataset.n,1);return vCal(m)}const d=e.target.closest('[data-d]');if(d){selDay=d.dataset.d;return vCal(m)}const bl=e.target.closest('[data-blk]');if(bl){const ds=bl.dataset.blk;S.blocked=S.blocked.includes(ds)?S.blocked.filter(x=>x!==ds):[...S.blocked,ds];await B.saveSettings(S);toast('Kaydedildi');vCal(m)}}}
+function vAvail(m){const t=[1,2,3,4,5,6,0];
+ m.innerHTML=banner()+`<h2>Müsaitlik</h2><div class="card" style="display:grid;gap:16px"><div><b style="font-size:13px">Çalışma günleri</b><div class="days" style="margin-top:6px">${t.map(d=>`<label><input type="checkbox" data-wd="${d}" ${S.workdays.includes(d)?'checked':''}>${DN[d]}</label>`).join('')}</div></div>
+ <div class="grid2"><label>Başlangıç<input type="time" id="aS" value="${S.start}"></label><label>Bitiş<input type="time" id="aE" value="${S.end}"></label><label>Mola başlangıç<input type="time" id="aBS" value="${S.breakStart||''}"></label><label>Mola bitiş<input type="time" id="aBE" value="${S.breakEnd||''}"></label>
+ <label>Görüşme süresi (dk)<select id="aSl">${[15,20,30,45,60].map(x=>`<option ${S.slot==x?'selected':''}>${x}</option>`).join('')}</select></label><label>En erken (saat sonrası)<input type="number" id="aL" min="0" value="${S.lead}"></label><label>Kaç gün ilerisi açık<input type="number" id="aH" min="7" max="365" value="${S.horizon}"></label></div>
+ <div><b style="font-size:13px">Kapalı günler</b><div class="chips" style="margin:6px 0">${S.blocked.slice().sort().map(d=>`<span class="chip">${fmt(d)}<button data-rm="${d}" aria-label="Kaldır">×</button></span>`).join('')||'<span class="note">Yok</span>'}</div><div class="row"><input type="date" id="aB" style="width:auto"><button class="btn o s" id="aAdd">Gün kapat</button></div></div>
+ <div><button class="btn c" id="aSave">Kaydet</button></div></div>`;
+ m.onclick=async e=>{const rm=e.target.closest('[data-rm]');if(rm){S.blocked=S.blocked.filter(x=>x!==rm.dataset.rm);await B.saveSettings(S);return vAvail(m)}
+  if(e.target.id==='aAdd'){const v=$('#aB').value;if(v&&!S.blocked.includes(v)){S.blocked.push(v);await B.saveSettings(S);vAvail(m)}}
+  if(e.target.id==='aSave'){S.workdays=[...m.querySelectorAll('[data-wd]:checked')].map(x=>+x.dataset.wd);S.start=$('#aS').value;S.end=$('#aE').value;S.breakStart=$('#aBS').value;S.breakEnd=$('#aBE').value;S.slot=+$('#aSl').value;S.lead=+$('#aL').value;S.horizon=+$('#aH').value;await B.saveSettings(S);toast('Kaydedildi')}}}
+async function vLeads(m){const l=await B.leads();m.innerHTML=banner()+`<h2>Talepler</h2><div class="list">`+(l.length?l.map(x=>`<div class="item"><div class="when">${new Date(x.created).toLocaleDateString('tr-TR')}<small>${x.kind==='call'?'Arama':'Proje formu'}</small></div><div class="meta"><b>${H(x.name)}</b><span>${H(x.contact)}${x.topic?' · '+H(x.topic):''}${x.detail?' · '+H(x.detail):''}</span></div><div class="acts"><span class="st ${x.status==='done'?'done':'pending'}">${x.status==='done'?'Tamamlandı':'Yeni'}</span>${x.status!=='done'?`<button class="btn s" data-id="${x.id}">Tamamlandı</button>`:''}</div></div>`).join(''):'<div class="empty">Henüz talep yok.</div>')+'</div>';
+ m.onclick=async e=>{const b=e.target.closest('[data-id]');if(b){await B.updateLead(b.dataset.id,{status:'done'});vLeads(m)}}}
+function vSet(m){m.innerHTML=banner()+`<h2>Site ayarları</h2><div class="card" style="display:grid;gap:14px"><label>Google Meet bağlantısı<input id="sM" value="${H(S.meetUrl)}" placeholder="https://meet.google.com/xxx-xxxx-xxx"></label><label>İletişim e-postası<input id="sE" type="email" value="${H(S.email)}"></label><label>Randevu ekranında duyuru <span class="note">(isteğe bağlı)</span><textarea id="sN" rows="2" placeholder="Örn. 24–26 Ekim tatildeyiz.">${H(S.notice)}</textarea></label>${B.remote?'':`<label>Yönetici şifresi (demo)<input id="sP" type="password" placeholder="Yeni şifre"></label>`}<div><button class="btn c" id="sSave">Kaydet</button></div></div>`;
+ $('#sSave').onclick=async()=>{S.meetUrl=$('#sM').value.trim();S.email=$('#sE').value.trim();S.notice=$('#sN').value.trim();await B.saveSettings(S);const p=$('#sP');if(p&&p.value){B.setLocalPass(p.value);p.value=''}toast('Kaydedildi')}}
+gate();
+})();
+</script></body></html>

@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /_arsiv/
 Disallow: /motion/
+Disallow: /admin.html
 
 # Yapay zeka tarayıcıları
 User-agent: GPTBot

@@ -22,24 +22,39 @@ ready(()=>{
  if(main&&!D.querySelector('.skip-link'))D.body.prepend(el('<a class="skip-link" href="#icerik">İçeriğe geç</a>'));
  // dış bağlantı güvenliği
  D.querySelectorAll('a[target="_blank"]').forEach(a=>{const r=new Set((a.rel||'').split(' ').filter(Boolean));r.add('noopener');r.add('noreferrer');a.rel=[...r].join(' ')});
- // sabit WhatsApp
- if(!D.querySelector('.bx-wa')){D.body.append(el('<a class="bx-wa" href="'+wa('Merhaba, BARTSS ile çalışmak istiyorum.')+'" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile yazın"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.200-1.600-1.200-3s.8-2.100 1-2.400c.3-.3.600-.3.800-.3h.600c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .600l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.100.100.100.700-.1 1.400Z"/></svg><span>WhatsApp</span></a>'))}
+
+ // Başa dön (tüm sayfalar, sonradan eklenen footer dahil)
+ D.addEventListener('click',ev=>{const u=ev.target.closest&&ev.target.closest('.bf-up');if(!u)return;ev.preventDefault();const go=()=>{try{window.scrollTo({top:0,behavior:'smooth'})}catch(_){window.scrollTo(0,0)}};go();setTimeout(()=>{if((window.pageYOffset||D.documentElement.scrollTop||D.body.scrollTop)>0){D.documentElement.scrollTop=0;D.body.scrollTop=0}},900)});
+ // tek açık akordeon (SSS vb.)
+ D.addEventListener('toggle',ev=>{const d=ev.target;if(!(d instanceof HTMLDetailsElement)||!d.open)return;const p=d.parentElement;if(!p)return;p.querySelectorAll(':scope>details[open]').forEach(o=>{if(o!==d)o.open=false})},true);
  // iletişim formu
  const f=D.getElementById('contactForm');
  if(f){
   const set=(id,v)=>{const n=D.getElementById(id);if(n)n.href=v};
   set('ctWa',wa('Merhaba, BARTSS ile çalışmak istiyorum.'));set('ctTel','tel:'+AYARLAR.TELEFON.replace(/\s/g,''));set('ctMail','mailto:'+AYARLAR.EMAIL);
   const tx=(id,v)=>{const n=D.getElementById(id);if(n)n.textContent=v};tx('ctTelTxt',AYARLAR.TELEFON);tx('ctMailTxt',AYARLAR.EMAIL);
-  const cal=D.getElementById('ctCal');if(cal){AYARLAR.TAKVIM_URL?cal.href=AYARLAR.TAKVIM_URL:cal.remove()}
-  const msg=()=>{const v=n=>(f.elements[n].value||'').trim();return ['Merhaba, BARTSS için yeni proje talebi:','Ad: '+v('ad'),'İletişim: '+v('iletisim'),'Konu: '+v('konu'),'Bütçe: '+(v('butce')||'-'),'Not: '+(v('mesaj')||'-')].join('\n')};
+  const cal=D.getElementById('ctCal');if(cal){if(AYARLAR.TAKVIM_URL)cal.href=AYARLAR.TAKVIM_URL;else{cal.removeAttribute('target')}}
+  const msg=()=>{const v=n=>(f.elements[n].value||'').trim();return ['Merhaba, BARTSS için yeni proje talebi:','Ad: '+v('ad'),'İletişim: '+v('iletisim'),'Konu: '+v('konu'),'Çalışma: '+(v('butce')||'-'),'Zaman: '+((f.elements.zaman&&f.elements.zaman.value)||'-'),'Not: '+(v('mesaj')||'-')].join('\n')};
   const ok=()=>{if(f.elements.website.value)return false;if(!f.checkValidity()){f.reportValidity();return false}return true};
   const done=D.getElementById('formDone');
-  const fin=()=>{if(done){done.hidden=false;done.focus&&done.focus()}};
+  const fin=()=>{try{window.BARTSS_BOOKING&&BARTSS_BOOKING.addLead({kind:'brief',name:(f.elements.ad.value||'').trim(),contact:(f.elements.iletisim.value||'').trim(),topic:f.elements.konu.value,detail:[f.elements.butce.value,f.elements.zaman&&f.elements.zaman.value,(f.elements.mesaj&&f.elements.mesaj.value)||''].filter(Boolean).join(' · ')})}catch(_){}if(done){done.hidden=false;done.focus&&done.focus()}};
   f.addEventListener('click',e=>{const t=e.target.closest('[data-send]');if(!t)return;e.preventDefault();if(!ok())return;
    if(t.dataset.send==='wa')window.open(wa(msg()),'_blank','noopener');else location.href='mailto:'+AYARLAR.EMAIL+'?subject='+encodeURIComponent('Yeni proje talebi: '+f.elements.konu.value)+'&body='+encodeURIComponent(msg());
    fin();
    if(window.gtag)gtag('event','generate_lead',{method:t.dataset.send})});
   f.addEventListener('submit',e=>e.preventDefault());
+  if(f.classList.contains('bx-steps')){
+   const st=[...f.querySelectorAll('.bx-step')],bar=f.querySelector('.bx-bar i'),cnt=f.querySelector('.bx-count'),nx=f.querySelector('.bx-next'),bk=f.querySelector('.bx-back'),sum=D.getElementById('bxSum');let n=0;
+   const sel=k=>[...f.querySelectorAll('.bx-chips[data-for="'+k+'"] [aria-pressed="true"]')].map(b=>b.textContent.trim());
+   const can=()=>n===0?sel('konu').length>0:n===1?sel('butce').length>0:true;
+   const show=i=>{n=i;st.forEach((s,k)=>s.hidden=k!==i);bar.style.width=((i+1)/3*100)+'%';cnt.textContent='Adım '+(i+1)+' / 3';bk.hidden=i===0;nx.hidden=i===2;nx.disabled=!can();
+    if(i===2&&sum)sum.textContent=[sel('konu').join(', '),sel('butce').join(''),sel('zaman').join('')].filter(Boolean).join(' · ');
+    const lg=st[i].querySelector('legend');const top=f.getBoundingClientRect().top;if(top<0)scrollBy({top:top-90,behavior:'smooth'})};
+   f.addEventListener('click',e=>{const c=e.target.closest('.bx-chips button');if(!c)return;const g=c.parentElement;
+    if(g.dataset.multi)c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')!=='true');else{const on=c.getAttribute('aria-pressed')==='true';g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));c.setAttribute('aria-pressed',!on)}
+    f.elements[g.dataset.for].value=sel(g.dataset.for).join(', ');nx.disabled=!can()});
+   nx.addEventListener('click',()=>can()&&show(n+1));bk.addEventListener('click',()=>show(n-1));
+  }
  }
  // bölüm göstergesi (ana sayfa)
  if(D.getElementById('hizmetler')&&D.getElementById('iletisim')){
