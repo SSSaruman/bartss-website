@@ -5,7 +5,7 @@
 const CFG=window.BARTSS_BOOKING_CFG||{};
 const REMOTE=!!(CFG.supabaseUrl&&CFG.supabaseKey);
 const LS='bartss-booking-v1',TK='bartss-admin-token';
-const DEF={workdays:[1,2,3,4,5],start:'10:00',end:'18:00',slot:30,breakStart:'12:30',breakEnd:'13:30',lead:12,horizon:45,blocked:[],meetUrl:'',email:'hello@bartss.com',notice:''};
+const DEF={workdays:[1,2,3,4,5],start:'10:00',end:'18:00',slot:30,breakStart:'12:30',breakEnd:'13:30',lead:12,horizon:45,blocked:[],meetUrl:'',email:'alparkayabas@gmail.com',notice:''};
 const rd=()=>{try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return{}}};
 const wr=d=>localStorage.setItem(LS,JSON.stringify(d));
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);

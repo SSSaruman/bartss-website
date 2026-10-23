@@ -4,7 +4,7 @@ const AYARLAR={
  SITE_URL:'https://www.bartss.com',
  WHATSAPP:'905334718530',      // ülke kodlu, + ve boşluksuz
  TELEFON:'+90 533 471 85 30',
- EMAIL:'hello@bartss.com',
+ EMAIL:'alparkayabas@gmail.com',
  TAKVIM_URL:'',                // 15 dk tanışma görüşmesi bağlantısı (Calendly vb.), boşsa gizlenir
  GA4_ID:'',                    // örn. G-XXXXXXXXXX; doluysa çerez izni sorulur
  CLARITY_ID:''
